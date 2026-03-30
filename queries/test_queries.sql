@@ -66,7 +66,7 @@ WHERE keywords.name IN ('coffee', 'toast', 'green apple', 'cream', 'citrus')
 AND keywords_wine.count > 10
 GROUP BY keywords.name;*/
 
-SELECT
+/*SELECT
     wines.name AS wine_name,
     keywords_wine.group_name,
     COUNT(DISTINCT keywords.name) as keyword_count
@@ -76,4 +76,31 @@ JOIN keywords ON keywords.id = keywords_wine.keyword_id
 WHERE keywords.name IN ('coffee', 'toast', 'green apple', 'cream', 'citrus')
 AND keywords_wine.count > 10
 GROUP BY wines.id, wines.name
-HAVING COUNT(DISTINCT keywords.name) = 5;
+HAVING COUNT(DISTINCT keywords.name) = 5;*/
+
+-- PRAGMA table_info(grapes)
+
+-- PRAGMA table_info(most_used_grapes_per_country);
+
+/*SELECT
+    grapes.name AS grape_name,
+    SUM(most_used_grapes_per_country.wines_count) total_wines
+FROM grapes
+JOIN most_used_grapes_per_country ON most_used_grapes_per_country.grape_id = grapes.id
+GROUP BY grape_name
+ORDER BY total_wines DESC
+LIMIT 3;*/
+
+/*SELECT wines.name, ratings_average, ratings_count
+FROM wines
+WHERE wines.name LIKE '%Chardonnay%'
+AND ratings_count > 100
+ORDER BY ratings_average DESC
+LIMIT 5;*/
+
+SELECT wines.name AS wine_name, ratings_average, ratings_count, 'Cabernet Sauvignon' AS grape
+FROM wines
+WHERE wines.name LIKE '%Cabernet Sauvignon%'
+AND ratings_count > 100
+ORDER BY ratings_average DESC
+LIMIT 5
