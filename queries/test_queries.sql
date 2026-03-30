@@ -34,8 +34,46 @@ LIMIT 10; */
 FROM wines
 LIMIT 10; */
 
-/* SELECT name FROM vintages
+/*SELECT name FROM vintages
 WHERE wine_id IN (
-    SELECT id FROM wines WHERE winery_id = 1235
+    SELECT id FROM wines WHERE winery_id = 1252
 )
-LIMIT 5; */
+LIMIT 5;*/
+
+/*SELECT
+    wines.winery_id,
+    COUNT(DISTINCT regions.id) AS region_count
+FROM wines
+JOIN regions ON wines.region_id = regions.id
+GROUP BY wines.winery_id
+ORDER BY region_count DESC
+LIMIT 3;*/
+
+/*SELECT
+    wines.winery_id,
+    COUNT(wines.id) AS wine_count
+FROM wines
+GROUP BY wines.winery_id
+ORDER BY wine_count DESC
+LIMIT 3;*/
+
+/*SELECT
+    keywords.name,
+    COUNT(*) as wine_count
+FROM keywords
+JOIN keywords_wine ON keywords.id = keywords_wine.keyword_id
+WHERE keywords.name IN ('coffee', 'toast', 'green apple', 'cream', 'citrus')
+AND keywords_wine.count > 10
+GROUP BY keywords.name;*/
+
+SELECT
+    wines.name AS wine_name,
+    keywords_wine.group_name,
+    COUNT(DISTINCT keywords.name) as keyword_count
+FROM wines
+JOIN keywords_wine ON keywords_wine.wine_id = wines.id
+JOIN keywords ON keywords.id = keywords_wine.keyword_id
+WHERE keywords.name IN ('coffee', 'toast', 'green apple', 'cream', 'citrus')
+AND keywords_wine.count > 10
+GROUP BY wines.id, wines.name
+HAVING COUNT(DISTINCT keywords.name) = 5;
