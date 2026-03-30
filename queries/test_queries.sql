@@ -98,9 +98,18 @@ AND ratings_count > 100
 ORDER BY ratings_average DESC
 LIMIT 5;*/
 
-SELECT wines.name AS wine_name, ratings_average, ratings_count, 'Cabernet Sauvignon' AS grape
+/*SELECT wines.name AS wine_name, ratings_average, ratings_count, 'Cabernet Sauvignon' AS grape
 FROM wines
 WHERE wines.name LIKE '%Cabernet Sauvignon%'
 AND ratings_count > 100
 ORDER BY ratings_average DESC
-LIMIT 5
+LIMIT 5*/
+
+SELECT
+    vintages.year AS vintage_year,
+    ROUND(AVG(wines.ratings_average), 2) AS avg_rating
+FROM vintages
+JOIN wines ON wines.id = vintages.wine_id
+GROUP BY vintage_year
+ORDER BY avg_rating DESC
+LIMIT 10;
