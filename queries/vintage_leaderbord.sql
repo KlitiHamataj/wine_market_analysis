@@ -4,5 +4,4 @@ SELECT
 FROM vintages
 JOIN wines ON wines.id = vintages.wine_id
 GROUP BY vintage_year
-ORDER BY avg_rating DESC
-LIMIT 10;
+ORDER BY vintage_year ASC;

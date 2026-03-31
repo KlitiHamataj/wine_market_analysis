@@ -105,11 +105,11 @@ AND ratings_count > 100
 ORDER BY ratings_average DESC
 LIMIT 5*/
 
-SELECT
+/*SELECT
     vintages.year AS vintage_year,
     ROUND(AVG(wines.ratings_average), 2) AS avg_rating
 FROM vintages
 JOIN wines ON wines.id = vintages.wine_id
 GROUP BY vintage_year
 ORDER BY avg_rating DESC
-LIMIT 10;
+LIMIT 10;*/
