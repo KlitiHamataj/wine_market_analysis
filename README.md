@@ -124,7 +124,7 @@ During the analysis, several data quality issues were identified:
 
 ## 👤 Contributors
 
-- [Your Name](https://github.com/KlitiHamataj)
+- [Kliti Hamataj](https://github.com/KlitiHamataj)
 
 ---
 
