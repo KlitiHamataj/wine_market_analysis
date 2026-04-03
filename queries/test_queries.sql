@@ -113,3 +113,11 @@ JOIN wines ON wines.id = vintages.wine_id
 GROUP BY vintage_year
 ORDER BY avg_rating DESC
 LIMIT 10;*/
+
+SELECT
+    name,
+    price_euros,
+    ratings_average
+FROM vintages
+WHERE price_euros IS NOT NULL
+AND ratings_average IS NOT NULL
