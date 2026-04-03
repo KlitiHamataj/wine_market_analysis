@@ -85,7 +85,7 @@ Download the `vivino.db` SQLite file and place it in the `data/` folder.
 ```bash
 jupyter notebook
 ```
-Open `notebooks/exploration.ipynb` to explore the database, then `notebooks/analysis.ipynb` for the full market analysis.
+Open `notebooks/analysis.ipynb` for the full market analysis.
 
 ---
 
@@ -124,7 +124,7 @@ During the analysis, several data quality issues were identified:
 
 ## 👤 Contributors
 
-- [Your Name](https://github.com/KlitiHamataj)
+- [Kliti Hamataj](https://github.com/KlitiHamataj)
 
 ---
 
